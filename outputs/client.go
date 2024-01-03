@@ -272,6 +272,12 @@ func (c *Client) sendRequest(method string, payload interface{}) error {
 			}
 		}
 	}
+
+	// Set proxy if needed
+	if c.Config.UseSystemProxy {
+		customTransport.Proxy = http.ProxyFromEnvironment
+	}
+
 	client := &http.Client{
 		Transport: customTransport,
 	}

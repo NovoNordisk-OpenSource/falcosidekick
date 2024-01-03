@@ -767,6 +767,22 @@ func main() {
 		log.Printf("[INFO]  : Debug mode : %v", config.Debug)
 	}
 
+	if config.UseSystemProxy {
+		httpProxy, httpPresent := os.LookupEnv("HTTP_PROXY")
+		httpsProxy, httpsPresent := os.LookupEnv("HTTPS_PROXY")
+		noProxy, noProxyPresent := os.LookupEnv("NO_PROXY")
+
+		if httpPresent {
+			log.Printf("[INFO]  : Using system HTTP proxy: %s", httpProxy)
+		}
+		if httpsPresent {
+			log.Printf("[INFO]  : Using system HTTPS proxy: %s", httpsProxy)
+		}
+		if noProxyPresent {
+			log.Printf("[INFO]  : Excluding URLS for Proxy: %s", noProxy)
+		}
+	}
+
 	routes := map[string]http.Handler{
 		"/":        http.HandlerFunc(mainHandler),
 		"/ping":    http.HandlerFunc(pingHandler),

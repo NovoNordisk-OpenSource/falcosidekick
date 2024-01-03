@@ -68,6 +68,7 @@ type Configuration struct {
 	MutualTLSClient    MutualTLSClient
 	TLSClient          TLSClient
 	TLSServer          TLSServer
+	UseSystemProxy     bool
 	Debug              bool
 	ListenAddress      string
 	ListenPort         int

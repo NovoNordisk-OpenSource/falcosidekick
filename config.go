@@ -64,6 +64,7 @@ func getConfig() *types.Configuration {
 	v := viper.New()
 	v.SetDefault("ListenAddress", "")
 	v.SetDefault("ListenPort", 2801)
+	v.SetDefault("UseSystemProxy", false)
 	v.SetDefault("Debug", false)
 	v.SetDefault("BracketReplacer", "")
 	v.SetDefault("MutualTlsFilesPath", "/etc/certs")

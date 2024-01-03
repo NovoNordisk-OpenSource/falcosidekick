@@ -306,6 +306,7 @@ See **config_example.yaml** :
 ```yaml
 #listenaddress: "" # ip address to bind falcosidekick to (default: "" meaning all addresses)
 #listenport: 2801 # port to listen for daemon (default: 2801)
+useSystemProxy: false # if true falcosidekick will use the proxy configuration defined by HTTP_PROXY, HTTPS_PROXY and NO_PROXY environment variables (default: false)
 debug: false # if true all outputs will print in stdout the payload they send (default: false)
 customfields: # custom fields are added to falco events, if the value starts with % the relative env var is used
   # Akey: "AValue"
